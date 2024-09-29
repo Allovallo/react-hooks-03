@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router';
 import OldSignupForm from './components/SignupForm/SignupForm';
+import AppBar from './components/AppBar/AppBar';
 
 const containerStyles = {
   maxWidth: 1170,
@@ -12,8 +13,10 @@ const containerStyles = {
 export default function App() {
   return (
     <div style={containerStyles}>
+      <AppBar />
+
       <Routes>
-        <Route path="*" element={<OldSignupForm />}></Route>
+        <Route path="/signup" element={<OldSignupForm />}></Route>
       </Routes>
     </div>
   );
