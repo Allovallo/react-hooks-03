@@ -4,6 +4,7 @@ import OldSignupForm from './components/SignupForm/SignupForm';
 import OldClock from './components/Clock/Clock';
 import OldCounter from './components/Counter/Counter';
 import OldColorPicker from './components/ColorPicker/ColorPicker';
+import PokemonView from './views/PokemonView';
 
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
@@ -35,6 +36,7 @@ export default function App() {
           path="/colorpicker"
           element={<OldColorPicker options={colorPickerOptions} />}
         ></Route>
+        <Route path="/pokemon" element={<PokemonView />}></Route>
       </Routes>
     </div>
   );
