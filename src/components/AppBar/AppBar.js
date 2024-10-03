@@ -4,7 +4,7 @@ import UserMenu from '../UserMenu/UserMenu';
 import authContext from '../../contexts/auth/context.js';
 import styles from './AppBar.module.css';
 
-export default function AppBar() {
+export default function Appbar() {
   const { isLoggedIn, user, onLogIn, onLogOut } = useContext(authContext);
 
   return (

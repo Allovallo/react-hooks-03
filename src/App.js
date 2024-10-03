@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router';
-import OldSignupForm from './components/SignupForm/SignupForm';
-// import AppBar from './components/AppBar/AppBar';
-import OldClock from './components/Clock/Clock';
-import OldCounter from './components/Counter/Counter';
-import OldColorPicker from './components/ColorPicker/ColorPicker';
-import PokemonView from './views/PokemonView';
+import AppBar from './components/AppBar/AppBar.js';
+import OldSignupForm from './components/SignupForm/SignupForm.js';
+import OldColorPicker from './components/ColorPicker/ColorPicker.js';
+import OldCounter from './components/Counter/Counter.js';
+import OldClock from './components/Clock/Clock.js';
+import PokemonView from './views/PokemonView.js';
 
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
@@ -26,18 +26,16 @@ const containerStyles = {
 export default function App() {
   return (
     <div style={containerStyles}>
-      {/* <AppBar /> */}
+      <AppBar />
 
       <Routes>
         <Route path="/signup" element={<OldSignupForm />}></Route>
         <Route path="/clock" element={<OldClock />}></Route>
         <Route path="/counter" element={<OldCounter />}></Route>
-        <Route
-          path="/colorpicker"
-          element={<OldColorPicker options={colorPickerOptions} />}
-        ></Route>
+        <Route path="/colorpicker" element={<OldColorPicker options={colorPickerOptions} />}></Route>
         <Route path="/pokemon" element={<PokemonView />}></Route>
       </Routes>
+
     </div>
   );
 }
