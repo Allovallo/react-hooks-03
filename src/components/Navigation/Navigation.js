@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
 
-export const Navigation = () => {
+const Navigation = () => (
   <nav>
     <NavLink to="/signup" className={styles.link} activeClassName={styles.activeLink}>
       Форма
@@ -28,10 +28,10 @@ export const Navigation = () => {
       Пропуск першого рендеру
     </NavLink>
 
-    <NavLink to="notes" className={styles.link} activeClassName={styles.activeLink}>
+    <NavLink to="/notes" className={styles.link} activeClassName={styles.activeLink}>
       useMemo
     </NavLink>
-  </nav>;
-};
+  </nav>
+);
 
 export default memo(Navigation);

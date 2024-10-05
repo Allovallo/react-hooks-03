@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import MyContext from './context.js';
+import authContext from './context.js';
 import avatar from './avatar.png';
 
 export default function Provider({ children }) {
@@ -20,5 +20,5 @@ export default function Provider({ children }) {
     return { user, isLoggedIn, onLogIn, onLogOut };
   }, [isLoggedIn, user]);
 
-  return <MyContext.Provider value={providerValue}>{children}</MyContext.Provider>;
+  return <authContext.Provider value={providerValue}>{children}</authContext.Provider>;
 }

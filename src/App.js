@@ -1,4 +1,5 @@
-import { Route, Routes } from 'react-router';
+import { Routes, Route } from 'react-router';
+
 import AppBar from './components/AppBar/AppBar.js';
 import OldSignupForm from './components/SignupForm/SignupForm.js';
 import OldColorPicker from './components/ColorPicker/ColorPicker.js';
@@ -29,13 +30,15 @@ export default function App() {
       <AppBar />
 
       <Routes>
-        <Route path="/signup" element={<OldSignupForm />}></Route>
         <Route path="/clock" element={<OldClock />}></Route>
         <Route path="/counter" element={<OldCounter />}></Route>
-        <Route path="/colorpicker" element={<OldColorPicker options={colorPickerOptions} />}></Route>
+        <Route path="/signup" element={<OldSignupForm />}></Route>
+        <Route
+          path="/colorpicker"
+          element={<OldColorPicker options={colorPickerOptions} />}
+        ></Route>
         <Route path="/pokemon" element={<PokemonView />}></Route>
       </Routes>
-
     </div>
   );
 }
