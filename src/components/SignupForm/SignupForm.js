@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import styles from './SignupForm.module.css';
+import useLocalStorage from '../../hooks/useLocalStorage.js';
 
 export default function SignupForm() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useLocalStorage('email', '');
+  const [password, setPassword] = useLocalStorage('password', '');
 
   const handleChange = event => {
     const { name, value } = event.target;
