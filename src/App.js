@@ -1,9 +1,8 @@
 import { Routes, Route } from 'react-router';
-
 import AppBar from './components/AppBar/AppBar.js';
 import SignupForm from './components/SignupForm/SignupForm.js';
-import OldColorPicker from './components/ColorPicker/ColorPicker.js';
-import OldCounter from './components/Counter/Counter.js';
+import ColorPicker from './components/ColorPicker/ColorPicker.js';
+import Counter from './components/Counter/Counter.js';
 import OldClock from './components/Clock/Clock.js';
 import PokemonView from './views/PokemonView.js';
 
@@ -31,12 +30,9 @@ export default function App() {
 
       <Routes>
         <Route path="/clock" element={<OldClock />}></Route>
-        <Route path="/counter" element={<OldCounter />}></Route>
+        <Route path="/counter" element={<Counter />}></Route>
         <Route path="/signup" element={<SignupForm />}></Route>
-        <Route
-          path="/colorpicker"
-          element={<OldColorPicker options={colorPickerOptions} />}
-        ></Route>
+        <Route path="/colorpicker" element={<ColorPicker options={colorPickerOptions} />}></Route>
         <Route path="/pokemon" element={<PokemonView />}></Route>
       </Routes>
     </div>

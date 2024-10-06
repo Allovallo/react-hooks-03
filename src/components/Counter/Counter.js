@@ -1,42 +1,31 @@
-import React, { Component } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Counter.module.css';
 
-export default class OldCounter extends Component {
-  state = {
-    counterA: 0,
-    counterB: 0,
+export default function OldCounter() {
+  const [counterA, setCounterA] = useState(0);
+  const [counterB, setCounterB] = useState(0);
+
+  const handleCounterAIncrement = () => {
+    setCounterA(prevState => prevState + 1);
   };
 
-  handleCounterAIncrement = () => {
-    this.setState(({ counterA }) => ({ counterA: counterA + 1 }));
+  const handleCounterBIncrement = () => {
+    setCounterB(prevState => prevState + 1);
   };
 
-  handleCounterBIncrement = () => {
-    this.setState(({ counterB }) => ({ counterB: counterB + 1 }));
-  };
+  useEffect(() => {
+    const totalClicks = counterA + counterB;
+    document.title = `Всього клікнули ${totalClicks} разів`;
+  }, [counterA, counterB]);
 
-  componentDidMount() {
-    document.title = `Всього клікнули ${this.state.counterA + this.state.counterB} разів`;
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    // const { counterA, counterB } = this.state;
-
-    if (prevState.counterA !== this.state.counterA || prevState.counterB !== this.state.counterB) {
-      document.title = `Всього клікнули ${this.state.counterA + this.state.counterB} разів`;
-    }
-  }
-
-  render() {
-    return (
-      <>
-        <button type="button" className={styles.btn} onClick={this.handleCounterAIncrement}>
-          Клікнули counterA {this.state.counterA} разів
-        </button>
-        <button type="button" className={styles.btn} onClick={this.handleCounterBIncrement}>
-          Клікнули counterB {this.state.counterB} разів
-        </button>
-      </>
-    );
-  }
+  return (
+    <>
+      <button type="button" className={styles.btn} onClick={handleCounterAIncrement}>
+        Клікнули counterA {counterA} разів
+      </button>
+      <button type="button" className={styles.btn} onClick={handleCounterBIncrement}>
+        Клікнули counterB {counterB} разів
+      </button>
+    </>
+  );
 }
