@@ -5,6 +5,7 @@ import ColorPicker from './components/ColorPicker/ColorPicker.js';
 import Counter from './components/Counter/Counter.js';
 import Clock from './components/Clock/Clock.js';
 import PokemonView from './views/PokemonView.js';
+import SkipEffectOnFirstRender from './components/SkipEffectOnFirstRender.js';
 
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
@@ -34,6 +35,7 @@ export default function App() {
         <Route path="/signup" element={<SignupForm />}></Route>
         <Route path="/colorpicker" element={<ColorPicker options={colorPickerOptions} />}></Route>
         <Route path="/pokemon" element={<PokemonView />}></Route>
+        <Route path="/skip-first-render" element={<SkipEffectOnFirstRender />}></Route>
       </Routes>
     </div>
   );
