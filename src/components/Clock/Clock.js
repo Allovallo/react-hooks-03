@@ -1,35 +1,36 @@
-import React, { Component } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './Clock.module.css';
 
-export default class OldClock extends Component {
-  state = {
-    time: new Date(),
-  };
+export default function Clock() {
+  const [time, setTime] = useState(() => new Date());
 
-  intervalId = null;
+  const intervalId = useRef(null);
 
-  componentDidMount() {
-    this.intervalId = setInterval(() => {
-      this.setState({ time: new Date() });
+  useEffect(() => {
+    intervalId.current = setInterval(() => {
+      console.log('Це інтервал кожні 1000 мс ' + Date.now());
+      setTime(new Date());
     }, 1000);
-  }
 
-  componentWillUnmount() {
-    this.stop();
-  }
+    return () => {
+      console.log('Це функція очищення перед наступним визовом useEffect');
+      stop();
+    };
+  }, []);
 
-  stop = () => {
-    clearInterval(this.intervalId);
+  const stop = () => {
+    clearInterval(intervalId.current);
   };
 
-  render() {
-    return (
-      <div className={styles.container}>
-        <p className={styles.clockface}>Поточний час: {this.state.time.toLocaleString()}</p>
-        <button type="button" onClick={this.stop}>
-          Зупинити
-        </button>
-      </div>
-    );
-  }
+  console.log(intervalId);
+
+  return (
+    <div className={styles.container}>
+      <button onClick={() => setTime(new Date())}>Оновити стейт time</button>
+      <p className={styles.clockface}>Поточний час: {time.toLocaleString()}</p>
+      <button type="button" onClick={stop}>
+        Зупинити
+      </button>
+    </div>
+  );
 }

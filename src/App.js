@@ -3,7 +3,7 @@ import AppBar from './components/AppBar/AppBar.js';
 import SignupForm from './components/SignupForm/SignupForm.js';
 import ColorPicker from './components/ColorPicker/ColorPicker.js';
 import Counter from './components/Counter/Counter.js';
-import OldClock from './components/Clock/Clock.js';
+import Clock from './components/Clock/Clock.js';
 import PokemonView from './views/PokemonView.js';
 
 const colorPickerOptions = [
@@ -29,7 +29,7 @@ export default function App() {
       <AppBar />
 
       <Routes>
-        <Route path="/clock" element={<OldClock />}></Route>
+        <Route path="/clock" element={<Clock />}></Route>
         <Route path="/counter" element={<Counter />}></Route>
         <Route path="/signup" element={<SignupForm />}></Route>
         <Route path="/colorpicker" element={<ColorPicker options={colorPickerOptions} />}></Route>
