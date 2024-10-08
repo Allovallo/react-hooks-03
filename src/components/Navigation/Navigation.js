@@ -13,7 +13,11 @@ const Navigation = () => (
     </NavLink>
 
     <NavLink to="/counter" className={styles.link} activeClassName={styles.activeLink}>
-      Лічильник
+      Лічильник 1
+    </NavLink>
+
+    <NavLink to="/counter2" className={styles.link} activeClassName={styles.activeLink}>
+      Лічильник 2
     </NavLink>
 
     <NavLink to="/clock" className={styles.link} activeClassName={styles.activeLink}>
